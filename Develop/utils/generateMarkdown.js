@@ -25,11 +25,36 @@ I WANT a README generator
 SO THAT I can easily put together a good README for a new project
 */
 
-function generateMarkdown(data) {
+const generateMarkdown = (data) => {
   return `
 # ${data.title}
 
-`;
-}
+### Description
+  ${data.description}
 
-module.exports = generateMarkdown;
+### Table Of Contents
+  ${data.tableOfContents}
+
+### Installation
+  ${data.installation}
+  
+### Usage
+  ${data.usage}
+
+### Licensing
+  ${data.license}
+
+### Contributors
+  ${data.contributors}
+
+### Tests
+  ${data.tests}
+
+### Questions
+  ${data.questions}
+`;
+};
+
+module.exports = {
+  generateMarkdown,
+};

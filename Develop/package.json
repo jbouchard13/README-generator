@@ -1,7 +1,7 @@
 {
   "name": "readme-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Generate a README file by filling in the prompted questions",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/jbouchard13/README-generator.git"
   },
-  "author": "",
+  "author": "John Bouchard",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jbouchard13/README-generator/issues"

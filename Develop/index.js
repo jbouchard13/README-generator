@@ -1,5 +1,11 @@
 // don't forget: npm init
 
+// call functions from utils folder
+const functions = require("./utils/generateMarkdown");
+
+// call node fs to manipulate files
+const fs = require("fs");
+
 // install inquirer to prompt user
 const inquirer = require("inquirer");
 
@@ -20,7 +26,7 @@ const questions = [
   {
     type: "input",
     name: "description",
-    message: "How would you decribe your project?",
+    message: "How would you describe your project?",
   },
   // project's table of contents
   {
@@ -80,17 +86,24 @@ const questions = [
 
 // call inquirer to ask the user questions
 inquirer.prompt(questions).then((answers) => {
-  console.log(answers);
+  // take the user's answers
+  // generate a new markdown file
+  const newReadMe = functions.generateMarkdown(answers);
+  // place the users answers into the markdown file
+  // write the new markdown to a file
+  writeToFile();
+  // save file to desktop for easy access for user
+  console.log(newReadMe);
 });
 
-function writeToFile(fileName, data) {
+const writeToFile = (fileName, data) => {
   // where do I want the file to be placed? desktop? local directory? do I need to check?
   // create a file with name fileName
   // write to file fileName the data
-}
+};
 
-function init() {
+const init = () => {
   // initialize stuff that I need here
-}
+};
 
 init();
