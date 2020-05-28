@@ -70,6 +70,12 @@ const questions = [
     name: "questions",
     message: "What are the questions for your project?",
   },
+  // have the user name the new readme file
+  {
+    type: "input",
+    name: "fileName",
+    message: "How would you like to name the new file? (no .md needed)",
+  },
 
   //"What is your project title?",
   //"What is your description?",
@@ -91,15 +97,21 @@ inquirer.prompt(questions).then((answers) => {
   const newReadMe = functions.generateMarkdown(answers);
   // place the users answers into the markdown file
   // write the new markdown to a file
-  writeToFile();
+  writeToFile(`${answers.fileName}.md`, newReadMe);
   // save file to desktop for easy access for user
-  console.log(newReadMe);
+  console.log(answers);
+  // console.log(newReadMe);
 });
 
 const writeToFile = (fileName, data) => {
   // where do I want the file to be placed? desktop? local directory? do I need to check?
   // create a file with name fileName
+  fs.writeFile(fileName, data, (err) => {
+    if (err) throw err;
+    console.log("New README created.");
+  });
   // write to file fileName the data
+  // notify the user that the file has been saved
 };
 
 const init = () => {
