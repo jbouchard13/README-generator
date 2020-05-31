@@ -35,8 +35,6 @@ None
 ### Contributors
 
 - John Bouchard
-- Zeb Rainford
-- Logan Kozler
 
 ### Tests
 
