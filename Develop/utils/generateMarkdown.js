@@ -29,11 +29,17 @@ const generateMarkdown = (data) => {
   return `
 # ${data.title}
 
+### Table Of Contents
+  [Description](#description)\n
+  [Installation](#installation)\n
+  [Usage](#usage)\n
+  [Licensing](#licensing)\n
+  [Contributors](#contributors)\n
+  [Tests](#tests)\n
+  [Questions](#questions)\n
+
 ### Description
   ${data.description}
-
-### Table Of Contents
-  ${data.tableOfContents}
 
 ### Installation
   ${data.installation}

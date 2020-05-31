@@ -28,12 +28,6 @@ const questions = [
     name: "description",
     message: "How would you describe your project?",
   },
-  // project's table of contents
-  {
-    type: "input",
-    name: "tableOfContents",
-    message: "What are the table of contents for your project?",
-  },
   // project's installation
   {
     type: "input",
@@ -50,7 +44,7 @@ const questions = [
   {
     type: "input",
     name: "license",
-    message: "what are the licenses for your project?",
+    message: "What are the licenses for your project?",
   },
   // project's contributors
   {
@@ -68,7 +62,8 @@ const questions = [
   {
     type: "input",
     name: "questions",
-    message: "What are the questions for your project?",
+    message:
+      "Who can be reached out to if there are any questions about the project?",
   },
   // have the user name the new readme file
   {
@@ -97,7 +92,7 @@ inquirer.prompt(questions).then((answers) => {
   const newReadMe = functions.generateMarkdown(answers);
   // place the users answers into the markdown file
   // write the new markdown to a file
-  writeToFile(`${answers.fileName}.md`, newReadMe);
+  writeToFile(`../readme-files/${answers.fileName}.md`, newReadMe);
   // save file to desktop for easy access for user
   console.log(answers);
   // console.log(newReadMe);
