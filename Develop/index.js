@@ -74,7 +74,6 @@ const questions = [
 
   //"What is your project title?",
   //"What is your description?",
-  //"What is your table of contents?", // [Array:string] or an object
   //"How do you install the application?", // [string]
   //"What is your usage?", // [string]
   //"What is your license?", // [string]
@@ -88,10 +87,12 @@ const questions = [
 // call inquirer to ask the user questions
 inquirer.prompt(questions).then((answers) => {
   // take the user's answers
+  // take the contributors
   // generate a new markdown file
   const newReadMe = functions.generateMarkdown(answers);
   // place the users answers into the markdown file
   // write the new markdown to a file
+  // save the new markdown files to the readme-files folder
   writeToFile(`../readme-files/${answers.fileName}.md`, newReadMe);
   // save file to desktop for easy access for user
   console.log(answers);
