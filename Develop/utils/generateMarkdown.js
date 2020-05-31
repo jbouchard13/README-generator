@@ -29,7 +29,7 @@ const generateMarkdown = (data) => {
   return `
 # ${data.title}
 
-### Table Of Contents
+## Table Of Contents
   [Description](#description)\n
   [Installation](#installation)\n
   [Usage](#usage)\n
@@ -51,7 +51,7 @@ const generateMarkdown = (data) => {
   ${data.license}
 
 ### Contributors
-  ${data.contributors}
+  ${contributors}
 
 ### Tests
   ${data.tests}

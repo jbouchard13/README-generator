@@ -50,7 +50,8 @@ const questions = [
   {
     type: "input",
     name: "contributors",
-    message: "Who contributed to your project?",
+    message:
+      "Who contributed to your project? (please seperate names with a comma)",
   },
   // project's tests
   {
@@ -87,16 +88,17 @@ const questions = [
 // call inquirer to ask the user questions
 inquirer.prompt(questions).then((answers) => {
   // take the user's answers
-  // take the contributors
+  // take the contributors and place them into an array
+  const contributorsArr = answers.contributors.split(",");
+
   // generate a new markdown file
   const newReadMe = functions.generateMarkdown(answers);
+
   // place the users answers into the markdown file
-  // write the new markdown to a file
   // save the new markdown files to the readme-files folder
   writeToFile(`../readme-files/${answers.fileName}.md`, newReadMe);
-  // save file to desktop for easy access for user
-  console.log(answers);
-  // console.log(newReadMe);
+
+  console.log(contributorsArr);
 });
 
 const writeToFile = (fileName, data) => {
