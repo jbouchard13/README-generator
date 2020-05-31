@@ -45,6 +45,7 @@ const questions = [
     type: "input",
     name: "license",
     message: "What are the licenses for your project?",
+    default: "None",
   },
   // project's contributors
   {
@@ -58,6 +59,7 @@ const questions = [
     type: "input",
     name: "tests",
     message: "What are the tests for your project?",
+    default: "None",
   },
   // project's questions
   {
@@ -91,8 +93,18 @@ inquirer.prompt(questions).then((answers) => {
   // take the contributors and place them into an array
   const contributorsArr = answers.contributors.split(",");
 
+  // take contributors and add a new line and list element to each
+  // when it is saved it will help format the names
+  const contributorsFormatted = contributorsArr.map((contributor) => {
+    return `* ${contributor}\n`;
+  });
+
+  // join the contributorsFormatted array back to a string
+  // join it with empty "" to get ride of commas
+  const contributorsStr = contributorsFormatted.join("");
+  console.log(contributorsStr);
   // generate a new markdown file
-  const newReadMe = functions.generateMarkdown(answers);
+  const newReadMe = functions.generateMarkdown(answers, contributorsStr);
 
   // place the users answers into the markdown file
   // save the new markdown files to the readme-files folder
