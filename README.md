@@ -1,6 +1,6 @@
 # Node README Generator
 
-[![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
+[![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](#)
 
 > ## Table Of Contents
 >

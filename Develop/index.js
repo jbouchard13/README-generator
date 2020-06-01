@@ -80,7 +80,7 @@ const questions = [
 ];
 // create a new async function
 const getReadMeData = async () => {
-  // inside this async function call both inquirer and axios
+  // inside this async function call inquirer
 
   // call inquirer to ask the user questions
   const inquirerAnswers = await inquirer.prompt(questions);
@@ -88,18 +88,19 @@ const getReadMeData = async () => {
   // take the contributors and place them into an array
   const contributorsArr = inquirerAnswers.contributors.split(",");
 
-  // take contributors and add a new line and list element to each
+  // take contributors and add it into an image link for a badge
   // when it is saved it will help format the names
   const contributorsFormatted = contributorsArr.map((contributor) => {
-    return `* ${contributor}\n`;
+    return `![badge with contributors name](https://img.shields.io/badge/Built%20By-${contributor
+      // split each contributor to remove the space
+      .split(" ")
+      // join it back with %20 for url formatting
+      .join("%20")}-brightgreen)\n`;
   });
 
   // join the contributorsFormatted array back to a string
   // join it with empty "" to get ride of commas
   const contributorsStr = contributorsFormatted.join("");
-
-  // call shields.io with axios to generate badges
-  // const axiosShields = await axios.get(``);
 
   // generate a new markdown file
   const newReadMe = functions.generateMarkdown(
@@ -110,9 +111,8 @@ const getReadMeData = async () => {
   // place the users answers into the markdown file
   // save the new markdown files to the readme-files folder
   writeToFile(`../readme-files/${inquirerAnswers.fileName}.md`, newReadMe);
-
-  console.log(contributorsArr);
 };
+
 const writeToFile = (fileName, data) => {
   // where do I want the file to be placed? desktop? local directory? do I need to check?
   // create a file with name fileName

@@ -29,7 +29,7 @@ const generateMarkdown = (data, contributors) => {
   return `
 # ${data.title}
 
-[![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
+![created with node](https://img.shields.io/badge/Created%20with-Node-brightgreen)
 
 >## Table Of Contents
 >
