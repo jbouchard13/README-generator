@@ -29,14 +29,23 @@ const generateMarkdown = (data, contributors) => {
   return `
 # ${data.title}
 
-## Table Of Contents
-  [Description](#description)\n
-  [Installation](#installation)\n
-  [Usage](#usage)\n
-  [Licensing](#licensing)\n
-  [Contributors](#contributors)\n
-  [Tests](#tests)\n
-  [Questions](#questions)\n
+[![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
+
+>## Table Of Contents
+>
+>  [Description](#description)
+>
+>  [Installation](#installation)
+>
+>  [Usage](#usage)
+>
+>  [Licensing](#licensing)
+>
+>  [Contributors](#contributors)
+>
+>  [Tests](#tests)
+>
+>  [Questions](#questions)
 
 ### Description
   ${data.description}
@@ -52,11 +61,11 @@ const generateMarkdown = (data, contributors) => {
 
 ### Contributors
   ${contributors}
-
 ### Tests
   ${data.tests}
 
 ### Questions
+  Have any questions? Please reach out to:
   ${data.questions}
 `;
 };

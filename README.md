@@ -1,20 +1,22 @@
 # Node README Generator
 
-## Table Of Contents
+[![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
 
-[Description](#description)
-
-[Installation](#installation)
-
-[Usage](#usage)
-
-[Licensing](#licensing)
-
-[Contributors](#contributors)
-
-[Tests](#tests)
-
-[Questions](#questions)
+> ## Table Of Contents
+>
+> [Description](#description)
+>
+> [Installation](#installation)
+>
+> [Usage](#usage)
+>
+> [Licensing](#licensing)
+>
+> [Contributors](#contributors)
+>
+> [Tests](#tests)
+>
+> [Questions](#questions)
 
 ### Description
 
@@ -35,8 +37,6 @@ None
 ### Contributors
 
 - John Bouchard
-- Zeb Rainford
-- Logan Kozler
 
 ### Tests
 

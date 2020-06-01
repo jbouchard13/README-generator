@@ -9,6 +9,9 @@ const fs = require("fs");
 // install inquirer to prompt user
 const inquirer = require("inquirer");
 
+// install axios to do http requests
+const axios = require("axios");
+
 /*
 The user will be prompted for their GitHub username and other information pertaining to the project the README is for.
 */
@@ -74,24 +77,16 @@ const questions = [
     name: "fileName",
     message: "How would you like to name the new file? (no .md needed)",
   },
-
-  //"What is your project title?",
-  //"What is your description?",
-  //"How do you install the application?", // [string]
-  //"What is your usage?", // [string]
-  //"What is your license?", // [string]
-  //"Who are your contributors?", // [Array:string] ["Names", "Names", "Names"]
-  //"What are your tests?", // [string] (markdown formatted?)
-  //"What are your questions?", // see below:
-  ////* What is your User GitHub profile picture? [string] (image url?)
-  ////* What is your User GitHub email? [string]
 ];
+// create a new async function
+const getReadMeData = async () => {
+  // inside this async function call both inquirer and axios
 
-// call inquirer to ask the user questions
-inquirer.prompt(questions).then((answers) => {
+  // call inquirer to ask the user questions
+  const inquirerAnswers = await inquirer.prompt(questions);
   // take the user's answers
   // take the contributors and place them into an array
-  const contributorsArr = answers.contributors.split(",");
+  const contributorsArr = inquirerAnswers.contributors.split(",");
 
   // take contributors and add a new line and list element to each
   // when it is saved it will help format the names
@@ -102,17 +97,22 @@ inquirer.prompt(questions).then((answers) => {
   // join the contributorsFormatted array back to a string
   // join it with empty "" to get ride of commas
   const contributorsStr = contributorsFormatted.join("");
-  console.log(contributorsStr);
+
+  // call shields.io with axios to generate badges
+  // const axiosShields = await axios.get(``);
+
   // generate a new markdown file
-  const newReadMe = functions.generateMarkdown(answers, contributorsStr);
+  const newReadMe = functions.generateMarkdown(
+    inquirerAnswers,
+    contributorsStr
+  );
 
   // place the users answers into the markdown file
   // save the new markdown files to the readme-files folder
-  writeToFile(`../readme-files/${answers.fileName}.md`, newReadMe);
+  writeToFile(`../readme-files/${inquirerAnswers.fileName}.md`, newReadMe);
 
   console.log(contributorsArr);
-});
-
+};
 const writeToFile = (fileName, data) => {
   // where do I want the file to be placed? desktop? local directory? do I need to check?
   // create a file with name fileName
@@ -124,8 +124,4 @@ const writeToFile = (fileName, data) => {
   // notify the user that the file has been saved
 };
 
-const init = () => {
-  // initialize stuff that I need here
-};
-
-init();
+getReadMeData();
