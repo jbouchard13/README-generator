@@ -18,6 +18,10 @@
 >
 > [Questions](#questions)
 
+### Demo
+
+![Demo Gif](https://media.giphy.com/media/QZPx8qR2ihdETuDFdu/giphy.gif)
+
 ### Description
 
 This is a quick to use application that generates a README file with node. The user will be prompted for information and the program will fill in the template with the information provided by the user.
